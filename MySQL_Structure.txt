@@ -1,0 +1,111 @@
+--
+
+-- Database: `ravanroot`
+
+--
+
+CREATE DATABASE `ravanroot` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+USE `ravanroot`;
+
+ 
+
+-- --------------------------------------------------------
+
+ 
+
+--
+
+-- Table structure for table `slots_done`
+
+--
+
+ 
+
+CREATE TABLE `slots_done` (
+
+  `hash_id` int(11) NOT NULL,
+
+  `worker_id` text NOT NULL,
+
+  `slot` int(11) NOT NULL,
+
+  `cracked` tinyint(1) NOT NULL,
+
+  `clear` text NOT NULL,
+
+  `is_read` tinyint(1) NOT NULL
+
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+ 
+
+-- --------------------------------------------------------
+
+ 
+
+--
+
+-- Table structure for table `slots_todo`
+
+--
+
+ 
+
+CREATE TABLE `slots_todo` (
+
+  `id` int(11) NOT NULL auto_increment,
+
+  `hash_id` int(11) NOT NULL,
+
+  `worker_id` text NOT NULL,
+
+  `slots` text NOT NULL,
+
+  PRIMARY KEY  (`id`)
+
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+ 
+
+-- --------------------------------------------------------
+
+ 
+
+--
+
+-- Table structure for table `submit_hashes`
+
+--
+
+ 
+
+CREATE TABLE `submit_hashes` (
+
+  `hash` text NOT NULL,
+
+  `salt` text NOT NULL,
+
+  `hash_id` int(11) NOT NULL auto_increment,
+
+  `password` text NOT NULL,
+
+  `clear` text NOT NULL,
+
+  `algo` int(11) NOT NULL,
+
+  `salt_location` int(11) NOT NULL,
+
+  `keyspace` text NOT NULL,
+
+  `timestamp` bigint(20) NOT NULL,
+
+  PRIMARY KEY  (`hash_id`),
+
+  UNIQUE KEY `hash_id` (`hash_id`)
+
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+ 
+
+-- --------------------------------------------------------
